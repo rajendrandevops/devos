@@ -42,4 +42,4 @@ Build tools  : See /build/toolchain-manifest.txt
 [x] configs/devos.env written and verified
 [x] Toolchain installed and verified
 [ ] VT-x enabled (pending physical BIOS access)
-[ ] Git repository initialised
+[x] Git repository initialised
