@@ -1,0 +1,45 @@
+# DevOS Build Host Baseline
+# Phase 0 — Recorded: 2026-09-01
+# Status: APPROVED FOR PHASE 1
+
+=== HARDWARE ===
+Motherboard  : ASUS H110M-D Rev X.0x
+CPU          : Intel Core i7-7700 @ 3.60GHz (Kaby Lake)
+Cores        : 4 physical / 8 threads
+RAM          : 15 GiB total / ~14 GiB free
+Swap         : 4 GiB
+GPU          : Intel HD Graphics 630 (integrated)
+
+=== STORAGE ===
+Device       : /dev/sda (465.8 GB SSD)
+Layout       : sda1=EFI(1G) sda2=boot(2G) sda3=LVM(462.7G)
+Root LV      : /dev/mapper/ubuntu--vg-ubuntu--lv (455G, 425G free)
+Build root   : /build (on root LV — 425 GB available)
+
+=== FIRMWARE ===
+Boot mode    : UEFI
+Secure Boot  : DISABLED (correct for build work)
+
+=== VIRTUALIZATION ===
+KVM/VT-x     : DISABLED IN BIOS — PENDING PHYSICAL FIX
+               ASUS H110M-D: Advanced > CPU Configuration >
+               Intel Virtualization Technology > Enabled
+               Fix required before Phase 11 QEMU boot testing.
+               QEMU will run in TCG (software) mode until fixed.
+
+=== NETWORK ===
+Interface    : enp2s0
+IP           : 172.16.50.166/21
+MAC          : b0:6e:bf:d3:8e:d4
+
+=== SOFTWARE ===
+OS           : Ubuntu 24.04.4 LTS (Noble Numbat)
+Kernel       : 6.8.0-138-generic
+Build tools  : See /build/toolchain-manifest.txt
+
+=== PHASE 0 STATUS ===
+[x] Directory structure created (/build)
+[x] configs/devos.env written and verified
+[x] Toolchain installed and verified
+[ ] VT-x enabled (pending physical BIOS access)
+[ ] Git repository initialised

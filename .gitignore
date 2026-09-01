@@ -1,0 +1,19 @@
+# Build outputs — never commit these
+rootfs/
+iso/
+output/
+sources/
+logs/
+*.iso
+*.squashfs
+*.img
+
+# Private keys — NEVER commit
+*.gpg
+*.key
+*.pem
+private/
+
+# Temporary files
+*.tmp
+*.bak

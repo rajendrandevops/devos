@@ -1,0 +1,18 @@
+# DevOS Toolchain Manifest
+# Generated: Phase 0
+# Build Host: Ubuntu 24.04.4 LTS
+# Date: 2026-09-01
+
+mmdebstrap        1.4.3
+mksquashfs        4.6.1
+xorriso           1.5.6
+debootstrap       1.0.134ubuntu2
+grub-mkimage      2.12-1ubuntu7.3
+qemu-system-x86   8.2.2
+reprepro          5.3.1
+nginx             1.24.0
+git               2.43.0
+gpg               2.4.4
+pigz              2.8
+zstd              1.5.5
+OVMF              4M variants (OVMF_CODE_4M.fd present)
