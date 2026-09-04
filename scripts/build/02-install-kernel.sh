@@ -22,10 +22,15 @@ mount --bind /dev/pts "${DEVOS_ROOTFS_DIR}/dev/pts"
 # Ensure unmount happens even if script fails
 cleanup() {
     echo "--- Unmounting virtual filesystems ---"
-    umount "${DEVOS_ROOTFS_DIR}/dev/pts" 2>/dev/null || true
-    umount "${DEVOS_ROOTFS_DIR}/dev"     2>/dev/null || true
-    umount "${DEVOS_ROOTFS_DIR}/sys"     2>/dev/null || true
-    umount "${DEVOS_ROOTFS_DIR}/proc"    2>/dev/null || true
+    # Check before unmounting — never use -l (lazy) which can remove host devices
+    mountpoint -q "${DEVOS_ROOTFS_DIR}/dev/pts" && umount "${DEVOS_ROOTFS_DIR}/dev/pts" || true
+    mountpoint -q "${DEVOS_ROOTFS_DIR}/dev"     && umount "${DEVOS_ROOTFS_DIR}/dev"     || true
+    mountpoint -q "${DEVOS_ROOTFS_DIR}/sys"     && umount "${DEVOS_ROOTFS_DIR}/sys"     || true
+    mountpoint -q "${DEVOS_ROOTFS_DIR}/proc"    && umount "${DEVOS_ROOTFS_DIR}/proc"    || true
+    # Verify host /dev devices are intact
+    [ -c /dev/null ]    || mknod -m 666 /dev/null    c 1 3
+    [ -c /dev/urandom ] || mknod -m 666 /dev/urandom c 1 9
+    [ -c /dev/random ]  || mknod -m 666 /dev/random  c 1 8
 }
 trap cleanup EXIT
 
