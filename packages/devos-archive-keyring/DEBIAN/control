@@ -1,0 +1,9 @@
+Package: devos-archive-keyring
+Version: 1.0
+Architecture: all
+Maintainer: DevOS Project <devos-archive@devos.example>
+Description: DevOS archive signing keys
+ This package contains the GPG keys used to sign packages
+ in the DevOS official repository.
+Section: misc
+Priority: optional
