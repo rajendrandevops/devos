@@ -1,0 +1,8 @@
+Package: devos-profile-devsecops
+Version: 1.0
+Architecture: all
+Maintainer: DevOS Project <devos-archive@devos.example>
+Description: DevOS DevSecOps Profile — security tools
+Section: metapackages
+Priority: optional
+Depends: git, curl, nmap, wireshark, python3, python3-pip, netcat-openbsd, tcpdump
